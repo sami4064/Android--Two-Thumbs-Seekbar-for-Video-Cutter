@@ -168,8 +168,14 @@ public class VideoSliceSeekBar extends ImageView {
     }
 
     private void calculateThumbValue() {
-        thumbSliceLeftValue = (maxValue * (thumbSliceLeftX - thumbPadding)) / (getWidth() - 2 * thumbPadding);
-        thumbSliceRightValue = (maxValue * (thumbSliceRightX - thumbPadding)) / (getWidth() - 2 * thumbPadding);
+        // Wrong Way
+        //thumbSliceLeftValue = (maxValue * (thumbSliceLeftX - thumbPadding)) / (getWidth() - 2 * thumbPadding);
+        //thumbSliceRightValue = (maxValue * (thumbSliceRightX - thumbPadding)) / (getWidth() - 2 * thumbPadding);
+    
+        //Correct Way
+        thumbSliceLeftValue = (int) ((thumbSliceLeftX-thumbPadding)/((getWidth()-2d*thumbPadding)/maxValue));
+        thumbSliceRightValue =(int) ((thumbSliceRightX-thumbPadding)/((getWidth()-2d*thumbPadding)/maxValue));
+        
     }
 
 
